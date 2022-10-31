@@ -1,0 +1,14 @@
+def extension(str):
+	if "?" in str:
+		str=str[0:str.find("?")]
+	str=pathlib.Path(str).suffix
+	return str[1:len(str)]
+
+
+def cb_crawler_before_start():
+  try :
+    signal.signal(signal.SIGINT, signal_handler)
+
+  except:
+    print("\nCheck if port is already open in case server is not started.")
+		#exit(1)
